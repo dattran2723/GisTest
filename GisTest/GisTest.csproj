@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -151,6 +159,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\ListObjectViewModel.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\ThongTinDoiTuongChinh.cs" />
+    <Compile Include="Models\ThongTinDoiTuongPhu.cs" />
+    <Compile Include="Models\ThongTinLatLngDoiTuong.cs" />
+    <Compile Include="Models\ThongTinVeDoiTuong.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +179,7 @@
     <Content Include="Content\bootstrap4.1.0\js\bootstrap.bundle.min.js" />
     <Content Include="Content\bootstrap4.1.0\js\bootstrap.js" />
     <Content Include="Content\bootstrap4.1.0\js\bootstrap.min.js" />
+    <Content Include="Content\css\Index.css" />
     <Content Include="Content\font-awesome\css\all.css" />
     <Content Include="Content\font-awesome\css\all.min.css" />
     <Content Include="Content\font-awesome\css\brands.css" />
@@ -1688,6 +1704,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\GetListMenu.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1706,7 +1723,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,0 +1,191 @@
+﻿body {
+    overflow: hidden;
+}
+
+.wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#title {
+    height: 40px;
+    background: #0ba1d1;
+    position: relative;
+}
+
+#listCity {
+    max-width: 17%;
+    flex: 0 0 17%;
+    position: absolute;
+    overflow: scroll;
+    height: 100%;
+    overflow-y: auto;
+    transition: 1s;
+}
+
+.hidden#listCity {
+    margin-left: -17%;
+}
+
+#listCity label {
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+}
+
+.logo {
+    display: none;
+}
+
+.open > a {
+    color: #701919;
+}
+
+.open ul li ul li a span.node-icon {
+    display: none;
+}
+
+#listCity::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+/*#listCity::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px #a09a9a;
+        border-radius: 10px;
+    }*/
+
+/* Handle */
+#listCity::-webkit-scrollbar-thumb {
+    background: #aaa9a9;
+    border-radius: 10px;
+}
+
+    /* Handle on hover */
+    #listCity::-webkit-scrollbar-thumb:hover {
+        background: #AAAAAA;
+    }
+
+#listCity ul li a {
+    cursor: pointer;
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    text-decoration: none;
+}
+
+#xinkciti-map {
+    margin-left: 17%;
+    max-width: 83%;
+    flex: 0 0 83%;
+    height: 93%;
+    padding-right: 0;
+    padding-left: 0;
+    position: absolute;
+    transition: 1s;
+}
+
+.big#xinkciti-map {
+    max-width: 100%;
+    flex: 0 0 100%;
+    margin-left: 0;
+}
+
+ul {
+    list-style: none;
+    padding-left: 8%;
+    font-size: 14px;
+}
+
+.pull-right.sidebar-nav.authenticate {
+    display: none;
+}
+
+
+a#hidden-listCity {
+    position: fixed;
+    color: #4f4d4d;
+    font-size: 28px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 17%;
+    background: white;
+    text-decoration: none;
+    transition: 1s;
+    border-radius: 5px;
+    border: 1px solid #d8d8d8;
+    z-index: 10000;
+}
+
+    a#hidden-listCity.clicked {
+        margin-left: 0%;
+    }
+
+        a#hidden-listCity.clicked i.fa-angle-left::before {
+            content: "\f105" !important;
+        }
+
+#show-info {
+    position: fixed;
+    right: 0;
+    width: 400px;
+    transition: 1s;
+    display: none;
+    z-index: 1000;
+}
+
+    #show-info a {
+        color: #4f4d4d;
+        font-size: 28px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        text-decoration: none;
+        transition: 1s;
+        border-radius: 5px;
+        border: 1px solid #d8d8d8;
+        z-index: 1;
+    }
+
+        #show-info a#hidden-info.clicked i.fa-angle-right::before {
+            content: "\f104" !important;
+        }
+
+    #show-info .content-info {
+        background: white;
+        width: 360px;
+        box-shadow: 0px 13px 45px 2px rgba(0, 0, 0, 0.21);
+        border-radius: 5px;
+    }
+
+.item-info {
+    /*border: 1px solid #808080;*/
+    margin: 3% 0 3% 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .item-info .TINHTHANHPHO::after {
+        content: "Tỉnh/Thành phố:";
+    }
+
+    .item-info .HUYENQUAN::after {
+        content: "Quận/Huyện:";
+    }
+
+    .item-info .XAPHUONG::after {
+        content: "Phường/Xã:";
+    }
+
+.hidden#show-info {
+    margin-right: -360px !important;
+}
