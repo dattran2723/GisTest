@@ -48,12 +48,13 @@
     <link href="http://map.map4d.vn/styles/main.css" rel="stylesheet">
     <script src="http://map.map4d.vn/build/mapgl.bundle.js"></script>
     <script>
+        var map, dulieuve, ve, pLat, pLng, zoom;
         $(function () {
-            var map, dulieuve, ve, pLat, pLng, zoom;
+            
             var paramMapDefault = {
                 lat: 10.167615,
                 lng: 106.411514,
-                zoom: 11,
+                zoom: 4,
                 mode: "2d"
             };
             paramMap = {
@@ -66,8 +67,10 @@
                     //MapGL.SearchComponent
                 ]
             }
+            console.log(paramMap)
             map = MapGL.initMap("xinkciti-map", paramMap);
-
+            //setview cho map khi load 
+            map.leaflet.setView([10.167615, 106.411514],5)
             //sự kiện click vào địa điểm trên danh sách bản đổ
             $("#listCity").on('click', '.node-item', function () {
                 if (map.leaflet.hasLayer(ve)) {
