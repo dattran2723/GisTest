@@ -162,6 +162,7 @@
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\ListObjectViewModel.cs" />
     <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\GetThongTinByLatLngViewModel.cs" />
     <Compile Include="Models\ThongTinDoiTuongChinh.cs" />
     <Compile Include="Models\ThongTinDoiTuongPhu.cs" />
     <Compile Include="Models\ThongTinLatLngDoiTuong.cs" />
@@ -1717,8 +1718,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
