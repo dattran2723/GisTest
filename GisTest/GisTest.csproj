@@ -163,6 +163,7 @@
     <Compile Include="Models\ListObjectViewModel.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\GetThongTinByLatLngViewModel.cs" />
+    <Compile Include="Models\Point.cs" />
     <Compile Include="Models\ThongTinDoiTuongChinh.cs" />
     <Compile Include="Models\ThongTinDoiTuongPhu.cs" />
     <Compile Include="Models\ThongTinLatLngDoiTuong.cs" />

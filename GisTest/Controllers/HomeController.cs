@@ -1,4 +1,5 @@
 ﻿using GisTest.Models;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -131,12 +132,13 @@ namespace GisTest.Controllers
         /// <summary>
         /// truyen vao 2 gia tri Lat, Lng
         /// dem so sanh voi cac gia tri Max Min bang cach goi store
-        /// trong store se bettwen Lat voi MinLat-MaxLat va Lng voi MinLng-MaxLng
+        /// trong store se bettwen Lat voi MinLat-MaxLat va Lng voi MinLng-MaxLng va tra 
+        /// ve gia tri ID,DuLieuDoiTuong,Value
         /// </summary>
         /// <param name="Lat">value Lat</param>
         /// <param name="Lng">value Lng</param>
-        /// <returns>'res' ket qua cac doi tuong thoa man dieu kien cua store </returns>
-        public JsonResult GetThongTinByLatLng(string Lat, string Lng)
+        /// <returns>phan tu Value dau tien </returns>
+        public JsonResult GetThongTinByLatLng(double Lat, double Lng)
         {
             try
             {
@@ -145,14 +147,46 @@ namespace GisTest.Controllers
                     new SqlParameter("@Lat", Lat),
                     new SqlParameter("@Lng", Lng),
                 };
+                List<string> list = new List<string>();
                 var res = db.Database.SqlQuery<GetThongTinByLatLngViewModel>("exec truyvan @Lat, @Lng", listParams).ToList();
-                return Json(res, JsonRequestBehavior.AllowGet);
+                foreach (var item in res)
+                {
+                    List<Point> listPoint = GetDuLieuDoiTuong(item.DuLieuDoiTuong);
+                    Point point = new Point(Lng, Lat);
+                    var kqtrave = point.IsPointInPolygon(listPoint);
+                    if (kqtrave == true)
+                    {
+                        list.Add(item.Value);
+                    }
+                }
+                return Json(list.FirstOrDefault(), JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+        /// <summary>
+        /// select tung phan tu trong 'coordinates' va add vao List<Point>
+        /// </summary>
+        /// <param name="dulieu">la chuoi DuLieuDoiTuong </param>
+        /// <returns>list cac point cua polygon</returns>
+        public List<Point> GetDuLieuDoiTuong(string dulieudoituong)
+        {
+            JObject json = JObject.Parse(dulieudoituong);
+            var geometry = json.SelectToken("geometry");
+            JArray coordinates = (JArray)geometry.SelectToken("coordinates")[0];
+            List<Point> points = new List<Point>();
+            foreach (var item in coordinates)
+            {
+                var x = item[0];
+                var y = item[1];
+                Point point = new Point((double)x, (double)y);
+                points.Add(point);
+            }
+            return points;
+        }
+
     }
 
 }
