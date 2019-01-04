@@ -107,29 +107,6 @@ namespace GisTest.Controllers
             return info.FirstOrDefault();
         }
         /// <summary>
-        /// dang sua
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public JsonResult SubString(string id)
-        {
-            var query = from a in db.ThongTinVeDoiTuongs
-                        where a.ThongTinDoiTuongChinhId == id
-                        select a.DuLieuDoiTuong;
-            var b = query.FirstOrDefault();
-            var c = b.IndexOf("]]]}");
-            var dem = b.IndexOf(":[[[");
-            string chuoi = b.Substring(b.IndexOf(":[[[") + 4, c - dem);
-            string[] items = chuoi.Split(',');
-            List<string> list = new List<string>();
-            foreach (var item in items)
-            {
-                list.Add(item);
-            }
-            return Json(list, JsonRequestBehavior.AllowGet);
-            //b.IndexOf("[[[") + 3
-        }
-        /// <summary>
         /// truyen vao 2 gia tri Lat, Lng
         /// dem so sanh voi cac gia tri Max Min bang cach goi store
         /// trong store se bettwen Lat voi MinLat-MaxLat va Lng voi MinLng-MaxLng va tra 
