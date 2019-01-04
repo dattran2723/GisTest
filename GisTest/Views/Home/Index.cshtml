@@ -50,7 +50,7 @@
     <script>
         var map, dulieuve, ve, pLat, pLng, zoom;
         $(function () {
-            
+
             var paramMapDefault = {
                 lat: 10.167615,
                 lng: 106.411514,
@@ -69,8 +69,8 @@
             }
             console.log(paramMap)
             map = MapGL.initMap("xinkciti-map", paramMap);
-            //setview cho map khi load 
-            map.leaflet.setView([10.167615, 106.411514],5)
+            //setview cho map khi load
+            map.leaflet.setView([10.167615, 106.411514], 5)
             //sự kiện click vào địa điểm trên danh sách bản đổ
             $("#listCity").on('click', '.node-item', function () {
                 if (map.leaflet.hasLayer(ve)) {
@@ -109,8 +109,18 @@
                 });
                 return codeHtml;
             };
+            //Click vao Map thi Load len thong tin cua dia diem do
             map.leaflet.on('click', function (e) {
-                console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+                $.ajax({
+                    url: "/Home/GetThongTinByLatLng?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng,
+                    type: 'get',
+                    success: function (obj) {
+                        var cod = GetThongTin(obj);
+                        $(".load-info").html(cod);
+                        $("#show-info").css("display", "flex");
+                    }
+                });
+                //console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
             });
         });
     </script>

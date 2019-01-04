@@ -8,11 +8,8 @@ namespace GisTest.Models
     public class GetThongTinByLatLngViewModel
     {
         public string Id { get; set; }
-        public string MaxLat { get; set; }
-        public string MinLat { get; set; }
-        public string MaxLng { get; set; }
-        public string MinLng { get; set; }
-        public string Ten { get; set; }
-        public string DiaGioiHanhChinhCode { get; set; }
+        public string DuLieuDoiTuong { get; set; }
+
+        public string Value { get; set; }
     }
 }
