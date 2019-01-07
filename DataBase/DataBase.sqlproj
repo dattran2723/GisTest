@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DataBase</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{f39079b2-fe47-45b3-a715-1dd007e1fe36}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DataBase</RootNamespace>
+    <AssemblyName>DataBase</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\ThongTinVeDoiTuong.sql" />
+    <Build Include="dbo\Tables\ThongTinLatLngDoiTuong.sql" />
+    <Build Include="dbo\Tables\ThongTinDoiTuongPhu.sql" />
+    <Build Include="dbo\Tables\ThongTinDoiTuongChinh.sql" />
+    <Build Include="dbo\Tables\ThongTinBuildingDoiTuong.sql" />
+    <Build Include="dbo\Tables\Tag.sql" />
+    <Build Include="dbo\Tables\PhanKhuTag.sql" />
+    <Build Include="dbo\Tables\PhanKhu.sql" />
+    <Build Include="dbo\Tables\LopCauHinhDoiTuong.sql" />
+    <Build Include="dbo\Tables\Lop.sql" />
+    <Build Include="dbo\Tables\Countries.sql" />
+    <Build Include="dbo\Tables\ChiTietCauHinhDoiTuong.sql" />
+    <Build Include="dbo\Tables\CauHinhDoiTuong.sql" />
+    <Build Include="dbo\Tables\AspNetUsers.sql" />
+    <Build Include="dbo\Tables\AspNetUserRoles.sql" />
+    <Build Include="dbo\Tables\AspNetUserLogins.sql" />
+    <Build Include="dbo\Tables\AspNetUserClaims.sql" />
+    <Build Include="dbo\Tables\AspNetRoles.sql" />
+    <Build Include="dbo\Tables\__MigrationHistory.sql" />
+    <Build Include="Security\thuctap.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Functions\GetLat.sql" />
+    <Build Include="dbo\Functions\fChuyenCoDauThanhKhongDau.sql" />
+    <Build Include="dbo\Functions\splitstringID.sql" />
+    <Build Include="dbo\Functions\SplitJsonToTableShape.sql" />
+    <Build Include="dbo\Functions\parseJSONShape.sql" />
+    <Build Include="dbo\Functions\parseJSONInforShap.sql" />
+    <Build Include="dbo\Functions\parseJSON.sql" />
+    <Build Include="dbo\Stored Procedures\XacDinhToaDo.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateThongTinVeDoiTuong.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateThongTinLatLngDoiTuong.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateThongTinDoiTuong.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateLatLngThongTinDoiTuong.sql" />
+    <Build Include="dbo\Stored Procedures\truyvan.sql" />
+    <Build Include="dbo\Stored Procedures\SearchZoomViewDoiTuong.sql" />
+    <Build Include="dbo\Stored Procedures\SearchViewDoiTuong.sql" />
+    <Build Include="dbo\Stored Procedures\SearchDoiTuong.sql" />
+    <Build Include="dbo\Stored Procedures\PhanTrangPhanKhu.sql" />
+    <Build Include="dbo\Stored Procedures\PagingUser.sql" />
+    <Build Include="dbo\Stored Procedures\PagingTag.sql" />
+    <Build Include="dbo\Stored Procedures\PagingLayer.sql" />
+    <Build Include="dbo\Stored Procedures\PagingCountry.sql" />
+    <Build Include="dbo\Stored Procedures\InsertDoiTuong.sql" />
+    <Build Include="dbo\Stored Procedures\GetXaPhuongByQuanHuyen.sql" />
+    <Build Include="dbo\Stored Procedures\GetThongTinDoiTuongById.sql" />
+    <Build Include="dbo\Stored Procedures\GetThongtinCauHinhDoiTuongByLopId.sql" />
+    <Build Include="dbo\Stored Procedures\GetShapeNearby.sql" />
+    <Build Include="dbo\Stored Procedures\GetQuanHuyenByCity.sql" />
+    <Build Include="dbo\Stored Procedures\GetPhanKhuByZoomView.sql" />
+    <Build Include="dbo\Stored Procedures\GetListProperties.sql" />
+    <Build Include="dbo\Stored Procedures\GetLayer.sql" />
+    <Build Include="dbo\Stored Procedures\GetFrameShapesByKieuDuLieuAndValue.sql" />
+    <Build Include="dbo\Stored Procedures\GetFrameShapeByThongTinDoiTuongChinhId.sql" />
+    <Build Include="dbo\Stored Procedures\GetDoiTuongByIdPhanKhu.sql" />
+    <Build Include="dbo\Stored Procedures\GetCountryChildByParentId.sql" />
+    <Build Include="dbo\Stored Procedures\GetCountryByCode.sql" />
+    <Build Include="dbo\Stored Procedures\GetCityByCountry.sql" />
+    <Build Include="dbo\Stored Procedures\GetChiTietThongTinByLopId.sql" />
+    <Build Include="dbo\Stored Procedures\GetChiTietCauHinhDoiTuongByLopID.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllShapJsonByParentPlaceId.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllShapJsonByDiaGioiHanhChinhCode.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllShapeJsonById.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllShapeJsonByCodeAndType.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllDoiTuongChinhByCodeAndType.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllCodeByDiaGioiHanhChinhCodeAndType.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteThongTinCauHinh.sql" />
+    <Build Include="dbo\Stored Procedures\danhSachTinhThanh.sql" />
+  </ItemGroup>
+</Project>
