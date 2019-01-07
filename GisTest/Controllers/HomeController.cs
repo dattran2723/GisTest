@@ -163,7 +163,17 @@ namespace GisTest.Controllers
             }
             return points;
         }
-
+        public bool test()
+        {
+            List<Point> listPoint = new List<Point>() { new Point(1, 1), new Point(2, 4), new Point(5, 1), new Point(3, 2) };
+            Point point = new Point(2, 3);
+            var res = point.IsPointInPolygon(listPoint);
+            return res;
+        }
+        public ActionResult Page2()
+        {
+            return View();
+        }
     }
 
 }
