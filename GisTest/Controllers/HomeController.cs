@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace GisTest.Controllers
 {
+    [OutputCache(Duration = 600)]
     public class HomeController : Controller
     {
         private GisData db = new GisData();

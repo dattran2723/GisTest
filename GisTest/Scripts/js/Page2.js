@@ -51,8 +51,8 @@
                 url: "/Home/GetThongTinByLatLng?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng,
                 type: 'get',
                 success: function (obj) {
-                    var cod = GetThongTin(obj);
-                    $(".load-info").html(cod);
+                    var htmlCode = GetThongTin(obj);
+                    $(".load-info").html(htmlCode);
                     $("#show-info").css("display", "flex");
                 }
             });

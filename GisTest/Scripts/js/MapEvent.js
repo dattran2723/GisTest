@@ -1,4 +1,4 @@
-﻿var map, dulieuve, ve, pLat, pLng, zoom;
+﻿var map, dulieuve, layer, pLat, pLng, zoom;
 $(function () {
 
     var paramMapDefault = {
@@ -22,20 +22,20 @@ $(function () {
     map.leaflet.setView([10.167615, 106.411514], 5)
     //sự kiện click vào địa điểm trên danh sách bản đổ
     $("#listCity").on('click', '.node-item', function () {
-        if (map.leaflet.hasLayer(ve)) {
-            map.leaflet.removeLayer(ve);
+        if (map.leaflet.hasLayer(layer)) {
+            map.leaflet.removeLayer(layer);
         }
         var value = $(this).attr("data-id");
-        var cod = GetThongTin(value);
+        var htmlCode = GetThongTin(value);
         //vẽ layer lên bản đồ
         //console.log(JSON.stringify(dulieuve));
-        ve = new L.GeoJSON(JSON.parse(dulieuve));
-        map.leaflet.addLayer(ve);
+        layer = new L.GeoJSON(JSON.parse(dulieuve));
+        map.leaflet.addLayer(layer);
 
         //zoom đến địa điểm
         map.leaflet.setView([pLat, pLng], zoom);
         //add html để hiển thị thông tin
-        $(".load-info").html(cod);
+        $(".load-info").html(htmlCode);
         $("#show-info").css("display", "flex");
     });
 
@@ -57,17 +57,5 @@ $(function () {
             }
         });
         return codeHtml;
-    };
-    //Click vao Map thi Load len thong tin cua dia diem do
-    map.leaflet.on('click', function (e) {
-        $.ajax({
-            url: "/Home/GetThongTinByLatLng?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng,
-            type: 'get',
-            success: function (obj) {
-                var cod = GetThongTin(obj);
-                $(".load-info").html(cod);
-                $("#show-info").css("display", "flex");
-            }
-        });
-    });
+    };   
 });
