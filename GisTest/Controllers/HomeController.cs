@@ -123,7 +123,7 @@ namespace GisTest.Controllers
                     new SqlParameter("@Lat", Lat),
                     new SqlParameter("@Lng", Lng),
                 };
-                List<string> list = new List<string>();
+                string result = string.Empty;
                 var res = db.Database.SqlQuery<ThongTinByLatLngViewModel>("exec GetThongTinByLatLng @Lat, @Lng", listParams).ToList();
                 foreach (var item in res)
                 {
@@ -132,10 +132,10 @@ namespace GisTest.Controllers
                     var kqtrave = point.IsPointInPolygon(listPoint);
                     if (kqtrave == true)
                     {
-                        list.Add(item.Value);
+                        result = item.Value;
                     }
                 }
-                return Json(list.FirstOrDefault(), JsonRequestBehavior.AllowGet);
+                return Json(result, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
