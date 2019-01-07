@@ -5,7 +5,7 @@ using System.Web;
 
 namespace GisTest.Models
 {
-    public class ListObjectViewModel
+    public class ObjectViewModel
     {
         public string Id { get; set; }
         public string Ten { get; set; }

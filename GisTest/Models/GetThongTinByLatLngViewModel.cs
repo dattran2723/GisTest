@@ -5,7 +5,7 @@ using System.Web;
 
 namespace GisTest.Models
 {
-    public class GetThongTinByLatLngViewModel
+    public class ThongTinByLatLngViewModel
     {
         public string Id { get; set; }
         public string DuLieuDoiTuong { get; set; }

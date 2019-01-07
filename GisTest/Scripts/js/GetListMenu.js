@@ -21,18 +21,18 @@
     });
 
     function CallAjax(e) {
-        var code = "<ul>";
+        var htmlCode = "<ul>";
         $.ajax({
             url: "/Home/GetDiaDiem?value=" + e,
             type: 'get',
             async: false,
             success: function (data) {
                 data.forEach(function (item) {
-                    code = code + '<li><a href="javascript:;" data-id="' + item.Value + '" class="node-item"><span>' + item.Ten + '</span><span class="node-icon"><i class="fa fa-angle-left"></i></span></a ></li>';
+                    htmlCode = htmlCode + '<li><a href="javascript:;" data-id="' + item.Value + '" class="node-item"><span>' + item.Ten + '</span><span class="node-icon"><i class="fa fa-angle-left"></i></span></a ></li>';
                 });
             }
         });
-        return code + '</ul>';
+        return htmlCode + '</ul>';
     };
 
     $("a#hidden-listCity").on("click", function () {
