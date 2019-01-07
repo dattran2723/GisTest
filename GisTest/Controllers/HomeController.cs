@@ -146,7 +146,7 @@ namespace GisTest.Controllers
         /// <summary>
         /// select tung phan tu trong 'coordinates' va add vao List<Point>
         /// </summary>
-        /// <param name="dulieu">la chuoi DuLieuDoiTuong </param>
+        /// <param name="dulieudoituong">la chuoi DuLieuDoiTuong </param>
         /// <returns>list cac point cua polygon</returns>
         public List<Point> GetDuLieuDoiTuong(string dulieudoituong)
         {
@@ -163,7 +163,7 @@ namespace GisTest.Controllers
             }
             return points;
         }
-        public bool test()
+        public bool Test()
         {
             List<Point> listPoint = new List<Point>() { new Point(1, 1), new Point(2, 4), new Point(5, 1), new Point(3, 2) };
             Point point = new Point(2, 3);
