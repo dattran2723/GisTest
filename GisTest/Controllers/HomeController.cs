@@ -146,7 +146,7 @@ namespace GisTest.Controllers
                     new SqlParameter("@Lng", Lng),
                 };
                 List<string> list = new List<string>();
-                var res = db.Database.SqlQuery<GetThongTinByLatLngViewModel>("exec truyvan @Lat, @Lng", listParams).ToList();
+                var res = db.Database.SqlQuery<ThongTinByLatLngViewModel>("exec truyvan @Lat, @Lng", listParams).ToList();
                 foreach (var item in res)
                 {
                     List<Point> listPoint = GetDuLieuDoiTuong(item.DuLieuDoiTuong);
