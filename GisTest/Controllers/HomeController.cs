@@ -27,6 +27,7 @@ namespace GisTest.Controllers
             return Json(doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode(value), JsonRequestBehavior.AllowGet);
         }
 
+
         /// <summary>
         /// Lấy đầy đủ một thông tin đối tượng bởi value
         /// </summary>
@@ -36,26 +37,8 @@ namespace GisTest.Controllers
         {
             List<ObjectViewModel> listObj = new List<ObjectViewModel>();
             listObj.Add(doiTuongChinh.GetThongTinDoiTuongByValue(value));
-            return Json(GetThongTinDoiTuongCha(listObj), JsonRequestBehavior.AllowGet);
+            return Json(doiTuongChinh.GetThongTinDoiTuongCha(listObj), JsonRequestBehavior.AllowGet);
         }
-
-        /// <summary>
-        /// Lấy tất cả thông tin đối tượng cha
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        public List<ObjectViewModel> GetThongTinDoiTuongCha(List<ObjectViewModel> model)
-        {
-            ObjectViewModel pa = model[model.Count - 1];
-            if (pa != null)
-            {
-                model.Add(doiTuongChinh.GetThongTinDoiTuongByValue(pa.DiaGioiHanhChinhCode));
-                return GetThongTinDoiTuongCha(model);
-            }
-            model.Remove(pa);
-            return model;
-        }
-
         
         /// <summary>
         /// truyen vao 2 gia tri Lat, Lng

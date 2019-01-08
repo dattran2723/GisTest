@@ -56,15 +56,17 @@ namespace GisTest.Models
         //    List<ObjectViewModel> listObj = new List<ObjectViewModel>();
 
         //}
-        //public void GetDoiTuongByID(int id)
-        //{
-        //    var list = from a in db.Countries
-        //               where a.Id == id
-        //               select new ObjectViewModel
-        //               {
-
-        //               };
-
-        //}
+        public void GetDoiTuongByID(int id)
+        {
+            var list = from a in db.Countries
+                       where a.Id == id
+                       select new ObjectViewModel
+                       {
+                           Id = a.Id.ToString(),
+                           Ten = a.Name,
+                           Level = a.Level,
+                           Description = a.Description
+                       };
+        }
     }
 }
