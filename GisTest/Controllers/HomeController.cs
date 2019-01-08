@@ -23,6 +23,7 @@ namespace GisTest.Controllers
             return Json(doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode(value), JsonRequestBehavior.AllowGet);
         }
 
+
         /// <summary>
         /// Lấy đầy đủ một thông tin đối tượng bởi value
         /// </summary>
@@ -32,30 +33,13 @@ namespace GisTest.Controllers
         {
             List<ObjectViewModel> listObj = new List<ObjectViewModel>();
             listObj.Add(doiTuongChinh.GetThongTinDoiTuongByValue(value));
-            return Json(GetThongTinDoiTuongCha(listObj), JsonRequestBehavior.AllowGet);
+            return Json(doiTuongChinh.GetThongTinDoiTuongCha(listObj), JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
-        /// Lấy tất cả thông tin đối tượng cha
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        public List<ObjectViewModel> GetThongTinDoiTuongCha(List<ObjectViewModel> model)
-        {
-            ObjectViewModel pa = model[model.Count - 1];
-            if (pa != null)
-            {
-                model.Add(doiTuongChinh.GetThongTinDoiTuongByValue(pa.DiaGioiHanhChinhCode));
-                return GetThongTinDoiTuongCha(model);
-            }
-            model.Remove(pa);
-            return model;
-        }
-        
-        /// <summary>
         /// Khởi tạo biến result
         /// Gọi hàm IsPointInPolygon() để kiểm trả có phải điểm đó nằm trong Polygon hay không
-        /// Nếu có thì sẻ gán giá trị Value vào result
+        /// Nếu có thì sẻ gán giá trị Value vào resultValue
         /// </summary>
         /// <param name="Lat">Truyền vào giá trị Lat</param>
         /// <param name="Lng">Truyền vào giá trị Lng</param>
