@@ -1,14 +1,7 @@
-﻿namespace GisTest.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+namespace GisTest.Models
 {
-    using GisTest.ViewModels;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-    using System.Data.SqlClient;
-    using System.Linq;
-
     [Table("ThongTinLatLngDoiTuong")]
     public partial class ThongTinLatLngDoiTuong
     {
@@ -30,6 +23,6 @@
         public double? Width { get; set; }
 
         public double? Height { get; set; }
-        
+
     }
 }
