@@ -1,4 +1,4 @@
-namespace GisTest.Models
+﻿namespace GisTest.Models
 {
     using GisTest.ViewModels;
     using System;
@@ -33,6 +33,16 @@ namespace GisTest.Models
 
         private GisData db = new GisData();
 
+
+
+        /// <summary>
+        /// Lấy tất cả đổi tượng có Lat Lng nằm trong
+        /// </summary>
+        /// <param name="lat">giá trị Lat của điểm</param>
+        /// <param name="lng">giá trị Lng của điển</param>
+        /// <returns>
+        /// danh sách các đối tượng
+        /// </returns>
         public List<ThongTinByLatLngViewModel> GetAllDoiTuongByLatLng(double lat, double lng)
         {
             try

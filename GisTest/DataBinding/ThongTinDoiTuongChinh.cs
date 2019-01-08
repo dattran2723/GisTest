@@ -59,16 +59,14 @@
         /// <summary>
         /// Lấy thông tin đối tượng chỉnh bởi "DiaGioiHanhChinhCode"
         /// </summary>
-        /// <param name="value">
-        /// </param>
+        /// <param name="value"> giá trị "DiaGioiHanhChinhCode" </param>
         /// <returns>
         /// danh sách các đối tượng có "DiaGioiHanhChinhCode" = value
         /// </returns>
         public List<ObjectViewModel> GetDoiTuongChinhByDiaGioiHanhChinhCode(string value)
         {
             IQueryable<ObjectViewModel> list = from a in db.ThongTinDoiTuongChinhs
-                                               join b in db.ThongTinDoiTuongPhus
-                                               on a.Id equals b.ThongTinDoiTuongChinhId
+                                               join b in db.ThongTinDoiTuongPhus on a.Id equals b.ThongTinDoiTuongChinhId
                                                where a.DiaGioiHanhChinhCode == value
                                                orderby a.Ten ascending
                                                select new ObjectViewModel()
@@ -85,9 +83,9 @@
         /// <summary>
         /// Lấy thông tin đối tượng bởi value
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">value của đối tượng</param>
         /// <returns>
-        /// Đối tượng có value = value
+        /// Đối tượng có value = value truyền vào
         /// </returns>
         public ObjectViewModel GetThongTinDoiTuongByValue(string value)
         {
