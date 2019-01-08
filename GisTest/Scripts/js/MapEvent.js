@@ -1,4 +1,4 @@
-﻿var map, dulieuve, layer, pLat, pLng, zoom;
+﻿var map, dulieuve, layer, lat, lng, zoom;
 $(function () {
 
     var paramMapDefault = {
@@ -28,17 +28,17 @@ $(function () {
         var value = $(this).attr("data-id");
         var htmlCode = GetThongTin(value);
         //vẽ layer lên bản đồ
-        var vedoituong = JSON.parse(dulieuve);
-        layer = new L.GeoJSON(vedoituong, {
+        var polygon = JSON.parse(dulieuve);
+        layer = new L.GeoJSON(polygon, {
             //style màu
-            style: function (vedoituong) {
-                return { color: vedoituong.properties.fill };
+            style: function (polygon) {
+                return { color: polygon.properties.fill };
             }
         });
         map.leaflet.addLayer(layer);
 
         //zoom đến địa điểm
-        map.leaflet.setView([pLat, pLng], zoom);
+        map.leaflet.setView([lat, lng], zoom);
         //add html để hiển thị thông tin
         $(".load-info").html(htmlCode);
         $("#show-info").css("display", "flex");
@@ -52,8 +52,8 @@ $(function () {
             async: false,
             success: function (data) {
                 dulieuve = ' {"type": "FeatureCollection","features": [' + data[0].DuLieuVe + ']}';
-                pLat = data[0].Lat;
-                pLng = data[0].Lng;
+                lat = data[0].Lat;
+                lng = data[0].Lng;
                 zoom = data[0].Zoom;
                 data.forEach(function (item) {
                     codeHtml = '<div class="row item-info"><label class="col-6 ' + item.Code.replace("/", "") + '" ></label ><label class="col-6">' + item.Ten + '</label></div >' + codeHtml;

@@ -1,11 +1,7 @@
 ﻿using GisTest.Models;
 using GisTest.ViewModels;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace GisTest.Controllers
@@ -71,11 +67,11 @@ namespace GisTest.Controllers
         /// <summary>
         /// select tung phan tu trong 'coordinates' va add vao List<Point>
         /// </summary>
-        /// <param name="dulieudoituong">la chuoi DuLieuDoiTuong </param>
+        /// <param name="duLieuDoiTuong">la chuoi DuLieuDoiTuong </param>
         /// <returns>list cac point cua polygon</returns>
-        public List<Point> GetPolygonFromDuLieuDoiTuong(string dulieudoituong)
+        public List<Point> GetPolygonFromDuLieuDoiTuong(string duLieuDoiTuong)
         {
-            JObject json = JObject.Parse(dulieudoituong);
+            JObject json = JObject.Parse(duLieuDoiTuong);
             var geometry = json.SelectToken("geometry");
             JArray coordinates = (JArray)geometry.SelectToken("coordinates")[0];
             List<Point> points = new List<Point>();
