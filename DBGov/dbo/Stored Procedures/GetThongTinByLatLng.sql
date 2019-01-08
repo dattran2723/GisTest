@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[truyvan] @Lat nvarchar(50), @Lng nvarchar(50)
+﻿CREATE PROCEDURE [dbo].[GetThongTinByLatLng] @Lat nvarchar(50), @Lng nvarchar(50)
 AS
 SELECT 
 	ThongTinLatLngDoiTuong.Id,

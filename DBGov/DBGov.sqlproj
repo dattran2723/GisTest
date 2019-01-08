@@ -4,20 +4,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>DataBase</Name>
+    <Name>DBGov</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{f39079b2-fe47-45b3-a715-1dd007e1fe36}</ProjectGuid>
+    <ProjectGuid>{361232ac-7638-4e2a-b7f1-8cfb244b03e9}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>DataBase</RootNamespace>
-    <AssemblyName>DataBase</AssemblyName>
+    <RootNamespace>DBGov</RootNamespace>
+    <AssemblyName>DBGov</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
@@ -59,7 +59,6 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
-    <Folder Include="Security\" />
     <Folder Include="dbo\Functions\" />
     <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
@@ -83,8 +82,6 @@
     <Build Include="dbo\Tables\AspNetUserClaims.sql" />
     <Build Include="dbo\Tables\AspNetRoles.sql" />
     <Build Include="dbo\Tables\__MigrationHistory.sql" />
-    <Build Include="Security\thuctap.sql" />
-    <Build Include="Security\RoleMemberships.sql" />
     <Build Include="dbo\Functions\GetLat.sql" />
     <Build Include="dbo\Functions\fChuyenCoDauThanhKhongDau.sql" />
     <Build Include="dbo\Functions\splitstringID.sql" />
@@ -97,7 +94,6 @@
     <Build Include="dbo\Stored Procedures\UpdateThongTinLatLngDoiTuong.sql" />
     <Build Include="dbo\Stored Procedures\UpdateThongTinDoiTuong.sql" />
     <Build Include="dbo\Stored Procedures\UpdateLatLngThongTinDoiTuong.sql" />
-    <Build Include="dbo\Stored Procedures\truyvan.sql" />
     <Build Include="dbo\Stored Procedures\SearchZoomViewDoiTuong.sql" />
     <Build Include="dbo\Stored Procedures\SearchViewDoiTuong.sql" />
     <Build Include="dbo\Stored Procedures\SearchDoiTuong.sql" />
@@ -110,6 +106,7 @@
     <Build Include="dbo\Stored Procedures\GetXaPhuongByQuanHuyen.sql" />
     <Build Include="dbo\Stored Procedures\GetThongTinDoiTuongById.sql" />
     <Build Include="dbo\Stored Procedures\GetThongtinCauHinhDoiTuongByLopId.sql" />
+    <Build Include="dbo\Stored Procedures\GetThongTinByLatLng.sql" />
     <Build Include="dbo\Stored Procedures\GetShapeNearby.sql" />
     <Build Include="dbo\Stored Procedures\GetQuanHuyenByCity.sql" />
     <Build Include="dbo\Stored Procedures\GetPhanKhuByZoomView.sql" />
