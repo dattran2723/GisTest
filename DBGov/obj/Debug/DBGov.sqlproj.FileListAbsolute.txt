@@ -1,0 +1,10 @@
+D:\Project\GOV\DBGov\bin\Debug\DBGov.dacpac
+D:\Project\GOV\DBGov\bin\Debug\DBGov.dll
+D:\Project\GOV\DBGov\bin\Debug\DBGov.pdb
+D:\Project\GOV\DBGov\obj\Debug\DBGov.sqlprojAssemblyReference.cache
+D:\Project\GOV\DBGov\obj\Debug\Model.xml
+D:\Project\GOV\DBGov\obj\Debug\refactor.xml
+D:\Project\GOV\DBGov\obj\Debug\postdeploy.sql
+D:\Project\GOV\DBGov\obj\Debug\predeploy.sql
+D:\Project\GOV\DBGov\obj\Debug\DBGov.dll
+D:\Project\GOV\DBGov\obj\Debug\DBGov.pdb
