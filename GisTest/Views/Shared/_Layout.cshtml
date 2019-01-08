@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>GOV</title>
+    <link href="~/Content/img/gov.png" type="image/png" rel="shortcut icon" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/font-awesome/css/all.css" rel="stylesheet" />
@@ -11,8 +12,8 @@
 </head>
 <body>
     <div class="row mr-0 ml-0" id="title" style="height:40px; background:#0094ff">
-        <a href="@Url.Action("Index")" class="btn btn-info">Trang chủ</a>
-        <a href="@Url.Action("Page2")" class="btn btn-info">Trang 2</a>
+        <a href="@Url.Action("Index")" class="btn btn-link text-white">Trang chủ</a>
+        <a href="@Url.Action("Page2")" class="btn btn-link text-white">Trang 2</a>
     </div>
     <div class="row mr-0 ml-0" style="height:100%">
         @RenderBody()

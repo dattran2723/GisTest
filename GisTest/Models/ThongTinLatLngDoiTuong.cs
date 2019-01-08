@@ -1,4 +1,4 @@
-namespace GisTest.Models
+﻿namespace GisTest.Models
 {
     using GisTest.ViewModels;
     using System;
@@ -32,7 +32,13 @@ namespace GisTest.Models
         public double? Height { get; set; }
 
         private GisData db = new GisData();
-
+        /// <summary>
+        /// trong Store sẻ Lấy Lat so sah với MinLat-MaxLat và lấy Lng so sánh với MinLng-MaxLng
+        /// Và lấy tới ThongTinDoiTuongPhu.Code = 'XA/PHUONG'
+        /// </summary>
+        /// <param name="lat">truyền vào giá trị Lat</param>
+        /// <param name="lng">truyền vào giá trị Lat</param>
+        /// <returns>1 list bao gồm Id, DuLieuDoiTuong và Value</returns>
         public List<ThongTinByLatLngViewModel> GetAllDoiTuongByLatLng(double lat, double lng)
         {
             try
