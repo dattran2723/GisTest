@@ -97,7 +97,6 @@
     <Build Include="dbo\Stored Procedures\UpdateThongTinLatLngDoiTuong.sql" />
     <Build Include="dbo\Stored Procedures\UpdateThongTinDoiTuong.sql" />
     <Build Include="dbo\Stored Procedures\UpdateLatLngThongTinDoiTuong.sql" />
-    <Build Include="dbo\Stored Procedures\truyvan.sql" />
     <Build Include="dbo\Stored Procedures\SearchZoomViewDoiTuong.sql" />
     <Build Include="dbo\Stored Procedures\SearchViewDoiTuong.sql" />
     <Build Include="dbo\Stored Procedures\SearchDoiTuong.sql" />
@@ -131,5 +130,6 @@
     <Build Include="dbo\Stored Procedures\GetAllCodeByDiaGioiHanhChinhCodeAndType.sql" />
     <Build Include="dbo\Stored Procedures\DeleteThongTinCauHinh.sql" />
     <Build Include="dbo\Stored Procedures\danhSachTinhThanh.sql" />
+    <Build Include="dbo\Stored Procedures\GetThongTinByLatLng.sql" />
   </ItemGroup>
 </Project>

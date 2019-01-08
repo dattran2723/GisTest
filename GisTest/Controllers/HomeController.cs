@@ -124,7 +124,7 @@ namespace GisTest.Controllers
                     new SqlParameter("@Lng", Lng),
                 };
                 string result = string.Empty;
-                var res = db.Database.SqlQuery<ThongTinByLatLngViewModel>("exec truyvan @Lat, @Lng", listParams).ToList();
+                var res = db.Database.SqlQuery<ThongTinByLatLngViewModel>("exec GetThongTinByLatLng @Lat, @Lng", listParams).ToList();
                 foreach (var item in res)
                 {
                     List<Point> listPoint = GetDuLieuDoiTuong(item.DuLieuDoiTuong);
@@ -145,7 +145,7 @@ namespace GisTest.Controllers
         /// <summary>
         /// select tung phan tu trong 'coordinates' va add vao List<Point>
         /// </summary>
-        /// <param name="dulieu">la chuoi DuLieuDoiTuong </param>
+        /// <param name="dulieudoituong">la chuoi DuLieuDoiTuong </param>
         /// <returns>list cac point cua polygon</returns>
         public List<Point> GetDuLieuDoiTuong(string dulieudoituong)
         {
@@ -161,13 +161,6 @@ namespace GisTest.Controllers
                 points.Add(point);
             }
             return points;
-        }
-        public bool test()
-        {
-            List<Point> listPoint = new List<Point>() { new Point(1, 1), new Point(2, 4), new Point(5, 1), new Point(3, 2) };
-            Point point = new Point(2, 3);
-            var res = point.IsPointInPolygon(listPoint);
-            return res;
         }
         public ActionResult Page2()
         {
