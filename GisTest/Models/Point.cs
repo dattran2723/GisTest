@@ -13,12 +13,13 @@ namespace GisTest.Models
         }
         /// <summary>
         /// gán biến inside = false
-        /// điều kiện Id: vd đường thẳng AB và điểm M
-        ///     + Kiểm tra 2 tọa độ Y của điểm A, B có nằm khác phía với Ym hay không
-        ///     + Kiểm tra 2 tọa độ X của điểm A, B, 1 trong 2 tọa độ X đó lớn hơn Xm thì sẻ thỏa
-        ///     + Từ M kẻ đường thẳng song song Ox, cắt với AM tại điểm P, nếu Xm < Xp thì M sẻ nằm trong Polygon đó
+        /// điều kiện Id: vd đường thẳng AB và điểm P(Xp,Yp) (là điểm cần so sánh có nằm trong polygon không)
+        ///     + Kiểm tra 2 tọa độ Ya, Yb của điểm A, B có nằm khác phía với Yp hay không
+        ///     + Kiểm tra 2 tọa độ Xa, Yb của điểm A, B, có nằm khác phía với Xp hay không
+        ///     + Giả sử Kẻ đường thẳng từ P song song với Ox cắt AB tại điểm M(Xm,Ym)
+        ///     Nếu Xp < Xm thì điểm P sẻ nằm trong polygon đó
         /// </summary>
-        /// <param name="polygon">truyền tham số vào bằng 1 List<Point></param>
+        /// <param name="polygon">truyền tham số vào bằng 1 dánh sách các điểm</param>
         /// <returns>inside == true thì điểm đó nằm trong Polygon còn ngược lại == fasle thì sẻ nằm ngoài</returns>
         public bool IsPointInPolygon(List<Point> polygon)
         {
