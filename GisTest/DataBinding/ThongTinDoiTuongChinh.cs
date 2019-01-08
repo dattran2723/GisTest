@@ -109,5 +109,24 @@
                                                };
             return info.FirstOrDefault();
         }
+
+
+
+        /// <summary>
+        /// Lấy tất cả thông tin đối tượng cha
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public List<ObjectViewModel> GetThongTinDoiTuongCha(List<ObjectViewModel> model)
+        {
+            ObjectViewModel pa = model[model.Count - 1];
+            if (pa != null)
+            {
+                model.Add(GetThongTinDoiTuongByValue(pa.DiaGioiHanhChinhCode));
+                return GetThongTinDoiTuongCha(model);
+            }
+            model.Remove(pa);
+            return model;
+        }
     }
 }

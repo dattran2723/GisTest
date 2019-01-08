@@ -159,14 +159,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Country.cs" />
-    <Compile Include="ViewModels\ListObjectViewModel.cs" />
+    <Compile Include="DataBinding\Country.cs" />
+    <Compile Include="ViewModels\ObjectViewModel.cs" />
     <Compile Include="Models\GisData.cs" />
     <Compile Include="Models\Point.cs" />
-    <Compile Include="Models\ThongTinDoiTuongChinh.cs" />
-    <Compile Include="Models\ThongTinDoiTuongPhu.cs" />
-    <Compile Include="Models\ThongTinLatLngDoiTuong.cs" />
-    <Compile Include="Models\ThongTinVeDoiTuong.cs" />
+    <Compile Include="DataBinding\ThongTinDoiTuongChinh.cs" />
+    <Compile Include="DataBinding\ThongTinDoiTuongPhu.cs" />
+    <Compile Include="DataBinding\ThongTinLatLngDoiTuong.cs" />
+    <Compile Include="DataBinding\ThongTinVeDoiTuong.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ThongTinByLatLngViewModel.cs" />
   </ItemGroup>
