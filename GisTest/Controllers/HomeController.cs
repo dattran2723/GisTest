@@ -1,4 +1,5 @@
 ﻿using GisTest.Models;
+using GisTest.ViewModels;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -29,18 +30,18 @@ namespace GisTest.Controllers
         public List<ObjectViewModel> GetDoiTuongChinhByDiaGioiHanhChinhCode(string value)
         {
             IQueryable<ObjectViewModel> list = from a in db.ThongTinDoiTuongChinhs
-                                                 join b in db.ThongTinDoiTuongPhus
-                                                 on a.Id equals b.ThongTinDoiTuongChinhId
-                                                 where a.DiaGioiHanhChinhCode == value
-                                                 orderby a.Ten ascending
-                                                 select new ObjectViewModel()
-                                                 {
-                                                     Id = a.Id,
-                                                     Ten = a.Ten,
-                                                     Value = b.Value,
-                                                     Lat = a.Lat,
-                                                     Lng = a.Lng
-                                                 };
+                                               join b in db.ThongTinDoiTuongPhus
+                                               on a.Id equals b.ThongTinDoiTuongChinhId
+                                               where a.DiaGioiHanhChinhCode == value
+                                               orderby a.Ten ascending
+                                               select new ObjectViewModel()
+                                               {
+                                                   Id = a.Id,
+                                                   Ten = a.Ten,
+                                                   Value = b.Value,
+                                                   Lat = a.Lat,
+                                                   Lng = a.Lng
+                                               };
             return list.ToList();
         }
 
@@ -88,21 +89,21 @@ namespace GisTest.Controllers
         public ObjectViewModel GetThongTinDoiTuongByValue(string value)
         {
             IQueryable<ObjectViewModel> info = from a in db.ThongTinDoiTuongChinhs
-                                                 join b in db.ThongTinDoiTuongPhus on a.Id equals b.ThongTinDoiTuongChinhId
-                                                 join c in db.ThongTinVeDoiTuongs on a.Id equals c.ThongTinDoiTuongChinhId
-                                                 where b.Value == value
-                                                 select new ObjectViewModel
-                                                 {
-                                                     Id = a.Id,
-                                                     Ten = a.Ten,
-                                                     Value = b.Value,
-                                                     Code = b.Code,
-                                                     Lat = a.Lat,
-                                                     Lng = a.Lng,
-                                                     DuLieuVe = c.DuLieuDoiTuong,
-                                                     DiaGioiHanhChinhCode = a.DiaGioiHanhChinhCode,
-                                                     Zoom = (b.Code == "XA/PHUONG" ? 12 : (b.Code == "HUYEN/QUAN" ? 11 : 9))
-                                                 };
+                                               join b in db.ThongTinDoiTuongPhus on a.Id equals b.ThongTinDoiTuongChinhId
+                                               join c in db.ThongTinVeDoiTuongs on a.Id equals c.ThongTinDoiTuongChinhId
+                                               where b.Value == value
+                                               select new ObjectViewModel
+                                               {
+                                                   Id = a.Id,
+                                                   Ten = a.Ten,
+                                                   Value = b.Value,
+                                                   Code = b.Code,
+                                                   Lat = a.Lat,
+                                                   Lng = a.Lng,
+                                                   DuLieuVe = c.DuLieuDoiTuong,
+                                                   DiaGioiHanhChinhCode = a.DiaGioiHanhChinhCode,
+                                                   Zoom = (b.Code == "XA/PHUONG" ? 12 : (b.Code == "HUYEN/QUAN" ? 11 : 9))
+                                               };
             return info.FirstOrDefault();
         }
         /// <summary>
@@ -114,40 +115,41 @@ namespace GisTest.Controllers
         /// <param name="Lat">value Lat</param>
         /// <param name="Lng">value Lng</param>
         /// <returns>phan tu Value dau tien </returns>
-        public JsonResult GetThongTinByLatLng(double Lat, double Lng)
+        public JsonResult GetThongTinByLatLng(double lat, double lng)
         {
-            try
+            ThongTinLatLngDoiTuong obj = new ThongTinLatLngDoiTuong();
+            List<ThongTinByLatLngViewModel> listObj = obj.GetAllDoiTuongByLatLng(lat, lng);
+            string result = string.Empty;
+            foreach (var item in listObj)
             {
-                SqlParameter[] listParams = new SqlParameter[]
+                List<Point> polygon = GetPolygonFromDuLieuDoiTuong(item.DuLieuDoiTuong);
+                Point point = new Point(lng, lat);
+                if (point.IsPointInPolygon(polygon))
                 {
-                    new SqlParameter("@Lat", Lat),
-                    new SqlParameter("@Lng", Lng),
-                };
-                string result = string.Empty;
-                var res = db.Database.SqlQuery<ThongTinByLatLngViewModel>("exec truyvan @Lat, @Lng", listParams).ToList();
-                foreach (var item in res)
-                {
-                    List<Point> listPoint = GetDuLieuDoiTuong(item.DuLieuDoiTuong);
-                    Point point = new Point(Lng, Lat);
-                    var kqtrave = point.IsPointInPolygon(listPoint);
-                    if (kqtrave == true)
-                    {
-                        result = item.Value;
-                    }
+                    result = item.Value;
                 }
-                return Json(result, JsonRequestBehavior.AllowGet);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return Json(result, JsonRequestBehavior.AllowGet);
+
+            //foreach (var item in res)
+            //{
+            //    List<Point> listPoint = GetDuLieuDoiTuong(item.DuLieuDoiTuong);
+            //    Point point = new Point(Lng, Lat);
+            //    var kqtrave = point.IsPointInPolygon(listPoint);
+            //    if (kqtrave == true)
+            //    {
+            //        result = item.Value;
+            //    }
+            //}
+            return Json(result, JsonRequestBehavior.AllowGet);
+
         }
         /// <summary>
         /// select tung phan tu trong 'coordinates' va add vao List<Point>
         /// </summary>
         /// <param name="dulieu">la chuoi DuLieuDoiTuong </param>
         /// <returns>list cac point cua polygon</returns>
-        public List<Point> GetDuLieuDoiTuong(string dulieudoituong)
+        public List<Point> GetPolygonFromDuLieuDoiTuong(string dulieudoituong)
         {
             JObject json = JObject.Parse(dulieudoituong);
             var geometry = json.SelectToken("geometry");
