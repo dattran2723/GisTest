@@ -1,11 +1,9 @@
 ﻿namespace GisTest.Models
 {
     using GisTest.ViewModels;
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
     using System.Linq;
 
     [Table("ThongTinDoiTuongChinh")]
@@ -113,8 +111,8 @@
         /// <summary>
         /// Lấy tất cả thông tin đối tượng cha
         /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
+        /// <param name="model">1 danh sách đối tượng</param>
+        /// <returns>1 danh sách đối tượng List<ObjectViewModel></returns>
         public List<ObjectViewModel> GetThongTinDoiTuongCha(List<ObjectViewModel> model)
         {
             ObjectViewModel pa = model[model.Count - 1];
