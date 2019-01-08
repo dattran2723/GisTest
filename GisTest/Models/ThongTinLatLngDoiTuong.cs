@@ -45,9 +45,8 @@ namespace GisTest.Models
                 var result = db.Database.SqlQuery<ThongTinByLatLngViewModel>("exec GetThongTinByLatLng @Lat, @Lng", listParams).ToList();
                 return result;
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-
                 throw ex;
             }
         }
