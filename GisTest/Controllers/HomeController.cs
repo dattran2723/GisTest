@@ -1,11 +1,7 @@
 ﻿using GisTest.Models;
 using GisTest.ViewModels;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace GisTest.Controllers
@@ -55,8 +51,7 @@ namespace GisTest.Controllers
             model.Remove(pa);
             return model;
         }
-
-
+        
         /// <summary>
         /// Khởi tạo biến result
         /// Gọi hàm IsPointInPolygon() để kiểm trả có phải điểm đó nằm trong Polygon hay không
