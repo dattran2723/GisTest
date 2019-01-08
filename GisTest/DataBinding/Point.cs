@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GisTest.Models
+namespace GisTest.DataBinding
 {
     public class Point
     {
