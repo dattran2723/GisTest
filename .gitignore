@@ -6,7 +6,7 @@
 /GisTest/bin
 /GisTest/obj/Debug
 /packages
-/DataBase/obj/Debug
-/DataBase
 /DBGov/obj
 /DBGov/bin
+/DBGov/DBGov.dbmdl
+/DBGov/DBGov.jfm

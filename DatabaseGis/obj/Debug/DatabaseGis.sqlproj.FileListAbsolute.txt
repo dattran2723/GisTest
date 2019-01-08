@@ -1,7 +1,0 @@
-D:\Project\GOV\DatabaseGis\bin\Debug\DatabaseGis.dacpac
-D:\Project\GOV\DatabaseGis\obj\Debug\Model.xml
-D:\Project\GOV\DatabaseGis\obj\Debug\refactor.xml
-D:\Project\GOV\DatabaseGis\obj\Debug\postdeploy.sql
-D:\Project\GOV\DatabaseGis\obj\Debug\predeploy.sql
-D:\Project\GOV\DatabaseGis\obj\Debug\DatabaseGis.dll
-D:\Project\GOV\DatabaseGis\obj\Debug\DatabaseGis.pdb
