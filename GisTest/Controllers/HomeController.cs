@@ -1,4 +1,4 @@
-﻿using GisTest.Models;
+﻿using GisTest.DataBinding;
 using GisTest.ViewModels;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
@@ -9,7 +9,6 @@ namespace GisTest.Controllers
     [OutputCache(Duration = 600)]
     public class HomeController : Controller
     {
-        private GisData db = new GisData();
         private ThongTinDoiTuongChinh doiTuongChinh = new ThongTinDoiTuongChinh();
 
         public ActionResult Index()

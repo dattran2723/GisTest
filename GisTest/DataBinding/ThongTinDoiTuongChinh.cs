@@ -1,4 +1,8 @@
-﻿namespace GisTest.Models
+﻿using GisTest.Models;
+using GisTest.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
+namespace GisTest.Models
 {
     using GisTest.ViewModels;
     using System.Collections.Generic;
@@ -6,51 +10,10 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    [Table("ThongTinDoiTuongChinh")]
+namespace GisTest.DataBinding
+{
     public partial class ThongTinDoiTuongChinh
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ThongTinDoiTuongChinh()
-        {
-            ThongTinDoiTuongPhus = new HashSet<ThongTinDoiTuongPhu>();
-            ThongTinVeDoiTuongs = new HashSet<ThongTinVeDoiTuong>();
-        }
-
-        [StringLength(50)]
-        public string Id { get; set; }
-
-        public string Ten { get; set; }
-
-        public int? SoThua { get; set; }
-
-        public int? SoTo { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string LopId { get; set; }
-
-        [StringLength(20)]
-        public string DiaGioiHanhChinhCode { get; set; }
-
-        public double? Lat { get; set; }
-
-        public double? Lng { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string CauHinhDoiTuongId { get; set; }
-
-        [StringLength(50)]
-        public string PhanKhuId { get; set; }
-
-        public string Tag { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThongTinDoiTuongPhu> ThongTinDoiTuongPhus { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThongTinVeDoiTuong> ThongTinVeDoiTuongs { get; set; }
-
         private GisData db = new GisData();
 
 
@@ -81,7 +44,7 @@
         /// <summary>
         /// Lấy thông tin đối tượng bởi value
         /// </summary>
-        /// <param name="value">value của đối tượng</param>
+        /// <param name="value">DiaGioiHanhChinhCode của đối tượng</param>
         /// <returns>
         /// Đối tượng có value = value truyền vào
         /// </returns>
@@ -111,8 +74,10 @@
         /// <summary>
         /// Lấy tất cả thông tin đối tượng cha
         /// </summary>
-        /// <param name="model">1 danh sách đối tượng</param>
-        /// <returns>1 danh sách đối tượng List<ObjectViewModel></returns>
+        /// <param name="model">Danh sách các đối tượng</param>
+        /// <returns>
+        /// danh sách các đối tượng
+        /// </returns>
         public List<ObjectViewModel> GetThongTinDoiTuongCha(List<ObjectViewModel> model)
         {
             ObjectViewModel pa = model[model.Count - 1];
