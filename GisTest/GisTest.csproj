@@ -162,7 +162,6 @@
     <Compile Include="Models\Country.cs" />
     <Compile Include="ViewModels\ListObjectViewModel.cs" />
     <Compile Include="Models\GisData.cs" />
-    <Compile Include="ViewModels\GetThongTinByLatLngViewModel.cs" />
     <Compile Include="Models\Point.cs" />
     <Compile Include="Models\ThongTinDoiTuongChinh.cs" />
     <Compile Include="Models\ThongTinDoiTuongPhu.cs" />
