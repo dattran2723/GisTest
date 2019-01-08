@@ -28,8 +28,13 @@ $(function () {
         var value = $(this).attr("data-id");
         var htmlCode = GetThongTin(value);
         //vẽ layer lên bản đồ
-        //console.log(JSON.stringify(dulieuve));
-        layer = new L.GeoJSON(JSON.parse(dulieuve));
+        var vedoituong = JSON.parse(dulieuve);
+        layer = new L.GeoJSON(vedoituong, {
+            //style màu
+            style: function (vedoituong) {
+                return { color: vedoituong.properties.fill };
+            }
+        });
         map.leaflet.addLayer(layer);
 
         //zoom đến địa điểm
@@ -57,5 +62,5 @@ $(function () {
             }
         });
         return codeHtml;
-    };   
+    };
 });

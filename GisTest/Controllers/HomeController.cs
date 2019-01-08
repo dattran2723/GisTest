@@ -39,22 +39,21 @@ namespace GisTest.Controllers
             listObj.Add(doiTuongChinh.GetThongTinDoiTuongByValue(value));
             return Json(doiTuongChinh.GetThongTinDoiTuongCha(listObj), JsonRequestBehavior.AllowGet);
         }
-        
+
         /// <summary>
-        /// truyen vao 2 gia tri Lat, Lng
-        /// dem so sanh voi cac gia tri Max Min bang cach goi store
-        /// trong store se bettwen Lat voi MinLat-MaxLat va Lng voi MinLng-MaxLng va tra 
-        /// ve gia tri ID,DuLieuDoiTuong,Value
+        /// Khởi tạo biến result
+        /// Gọi hàm IsPointInPolygon() để kiểm trả có phải điểm đó nằm trong Polygon hay không
+        /// Nếu có thì sẻ gán giá trị Value vào resultValue
         /// </summary>
-        /// <param name="Lat">value Lat</param>
-        /// <param name="Lng">value Lng</param>
-        /// <returns>phan tu Value dau tien </returns>
+        /// <param name="Lat">Truyền vào giá trị Lat</param>
+        /// <param name="Lng">Truyền vào giá trị Lng</param>
+        /// <returns>Trả về giá tri Item.value</returns>
         public JsonResult GetThongTinByLatLng(double lat, double lng)
         {
-            ThongTinLatLngDoiTuong obj = new ThongTinLatLngDoiTuong();
-            List<ThongTinByLatLngViewModel> listObj = obj.GetAllDoiTuongByLatLng(lat, lng);
+            ThongTinLatLngDoiTuong thongTinLatLngDoiTuong = new ThongTinLatLngDoiTuong();
+            List<ThongTinByLatLngViewModel> list = thongTinLatLngDoiTuong.GetAllDoiTuongByLatLng(lat, lng);
             string result = string.Empty;
-            foreach (var item in listObj)
+            foreach (var item in list)
             {
                 List<Point> polygon = GetPolygonFromDuLieuDoiTuong(item.DuLieuDoiTuong);
                 Point point = new Point(lng, lat);
