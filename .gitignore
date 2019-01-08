@@ -8,4 +8,5 @@
 /packages
 /DataBase/obj/Debug
 /DataBase
-/DBGov/obj/Debug
+/DBGov/obj
+/DBGov/bin
