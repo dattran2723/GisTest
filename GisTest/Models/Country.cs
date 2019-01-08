@@ -1,10 +1,12 @@
 namespace GisTest.Models
 {
+    using GisTest.ViewModels;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     public partial class Country
     {
@@ -46,5 +48,23 @@ namespace GisTest.Models
 
         [StringLength(100)]
         public string NameKhongDau { get; set; }
+
+        private GisData db = new GisData();
+
+        //public void GetFullThongTinDoiTuong(List<ObjectViewModel> list ,string code)
+        //{
+        //    List<ObjectViewModel> listObj = new List<ObjectViewModel>();
+
+        //}
+        //public void GetDoiTuongByID(int id)
+        //{
+        //    var list = from a in db.Countries
+        //               where a.Id == id
+        //               select new ObjectViewModel
+        //               {
+
+        //               };
+
+        //}
     }
 }

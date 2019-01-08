@@ -6,6 +6,10 @@
 /GisTest/bin
 /GisTest/obj/Debug
 /packages
+/DBGov/obj
+/DBGov/bin
+/DBGov/DBGov.dbmdl
+/DBGov/DBGov.jfm
 /DataBase/obj/Debug
 /DataBase/DataBase.dbmdl
 /DatabaseGis/obj/Debug

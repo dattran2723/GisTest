@@ -160,15 +160,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Country.cs" />
-    <Compile Include="Models\ListObjectViewModel.cs" />
+    <Compile Include="ViewModels\ListObjectViewModel.cs" />
     <Compile Include="Models\GisData.cs" />
-    <Compile Include="Models\ThongTinByLatLngViewModel.cs" />
     <Compile Include="Models\Point.cs" />
     <Compile Include="Models\ThongTinDoiTuongChinh.cs" />
     <Compile Include="Models\ThongTinDoiTuongPhu.cs" />
     <Compile Include="Models\ThongTinLatLngDoiTuong.cs" />
     <Compile Include="Models\ThongTinVeDoiTuong.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ThongTinByLatLngViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap4.1.0\css\bootstrap-grid.css" />

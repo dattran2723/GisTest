@@ -50,38 +50,6 @@
 			</Property>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[Tag]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tag].[DaSuDung]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[(newid())]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Lop]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Lop].[Id]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[((0))]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
 					<References Name="[dbo].[Countries]" />
 				</Entry>
 			</Relationship>
@@ -90,7 +58,7 @@
 					<References Name="[dbo].[Countries].[ParentId]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -106,7 +74,7 @@
 					<References Name="[dbo].[Countries].[IsVisible]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -122,99 +90,39 @@
 					<References Name="[dbo].[Countries].[IsState]" />
 				</Entry>
 			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[(newid())]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Lop]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Lop].[Id]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((0))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tag]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tag].[DaSuDung]" />
+				</Entry>
+			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[ThongTinDoiTuongChinh].[CauHinhDoiTuongId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[ThongTinDoiTuongChinh]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[CauHinhDoiTuong].[Id]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[CauHinhDoiTuong]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[ThongTinDoiTuongChinh].[LopId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[ThongTinDoiTuongChinh]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Lop].[Id]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Lop]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[LopCauHinhDoiTuong].[CauHinhDoiTuongId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[LopCauHinhDoiTuong]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[CauHinhDoiTuong].[Id]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[CauHinhDoiTuong]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[LopCauHinhDoiTuong].[LopId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[LopCauHinhDoiTuong]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Lop].[Id]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Lop]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint">
 			<Relationship Name="Columns">
@@ -237,6 +145,98 @@
 					<References Name="[dbo].[CauHinhDoiTuong]" />
 				</Entry>
 			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[LopCauHinhDoiTuong].[CauHinhDoiTuongId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[LopCauHinhDoiTuong]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[CauHinhDoiTuong].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[CauHinhDoiTuong]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[LopCauHinhDoiTuong].[LopId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[LopCauHinhDoiTuong]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Lop].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Lop]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[ThongTinDoiTuongChinh].[CauHinhDoiTuongId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ThongTinDoiTuongChinh]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[CauHinhDoiTuong].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[CauHinhDoiTuong]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[ThongTinDoiTuongChinh].[LopId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ThongTinDoiTuongChinh]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Lop].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Lop]" />
+				</Entry>
+			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
@@ -245,7 +245,7 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[dbo].[ThongTinDoiTuongChinh].[Id]" />
+								<References Name="[dbo].[CauHinhDoiTuong].[Id]" />
 							</Entry>
 						</Relationship>
 					</Element>
@@ -253,7 +253,7 @@
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[ThongTinDoiTuongChinh]" />
+					<References Name="[dbo].[CauHinhDoiTuong]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
@@ -264,7 +264,7 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[dbo].[ThongTinBuildingDoiTuong].[Id]" />
+								<References Name="[dbo].[ChiTietCauHinhDoiTuong].[Id]" />
 							</Entry>
 						</Relationship>
 					</Element>
@@ -272,7 +272,7 @@
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[ThongTinBuildingDoiTuong]" />
+					<References Name="[dbo].[ChiTietCauHinhDoiTuong]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
@@ -283,7 +283,7 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[dbo].[PhanKhuTag].[Id]" />
+								<References Name="[dbo].[Countries].[Id]" />
 							</Entry>
 						</Relationship>
 					</Element>
@@ -291,7 +291,7 @@
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[PhanKhuTag]" />
+					<References Name="[dbo].[Countries]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
@@ -321,7 +321,7 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[dbo].[Countries].[Id]" />
+								<References Name="[dbo].[PhanKhuTag].[Id]" />
 							</Entry>
 						</Relationship>
 					</Element>
@@ -329,7 +329,7 @@
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[Countries]" />
+					<References Name="[dbo].[PhanKhuTag]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
@@ -340,7 +340,7 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[dbo].[ChiTietCauHinhDoiTuong].[Id]" />
+								<References Name="[dbo].[ThongTinBuildingDoiTuong].[Id]" />
 							</Entry>
 						</Relationship>
 					</Element>
@@ -348,7 +348,7 @@
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[ChiTietCauHinhDoiTuong]" />
+					<References Name="[dbo].[ThongTinBuildingDoiTuong]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
@@ -359,7 +359,7 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[dbo].[CauHinhDoiTuong].[Id]" />
+								<References Name="[dbo].[ThongTinDoiTuongChinh].[Id]" />
 							</Entry>
 						</Relationship>
 					</Element>
@@ -367,7 +367,7 @@
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[CauHinhDoiTuong]" />
+					<References Name="[dbo].[ThongTinDoiTuongChinh]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
@@ -957,7 +957,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="19" />
+			<AttachedAnnotation Disambiguator="13" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[ChiTietCauHinhDoiTuong]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1143,8 +1143,8 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="18" />
-			<AttachedAnnotation Disambiguator="12" />
+			<AttachedAnnotation Disambiguator="14" />
+			<AttachedAnnotation Disambiguator="8" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Countries]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1242,7 +1242,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="5" />
+						<AttachedAnnotation Disambiguator="3" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -1273,7 +1273,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="6" />
+						<AttachedAnnotation Disambiguator="4" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -1349,7 +1349,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="7" />
+						<AttachedAnnotation Disambiguator="5" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -1422,7 +1422,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="17" />
+			<AttachedAnnotation Disambiguator="15" />
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[danhSachTinhThanh]">
 			<Property Name="BodyScript">
@@ -4662,7 +4662,7 @@ RETURN 0]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="4" />
+						<AttachedAnnotation Disambiguator="6" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -4812,8 +4812,8 @@ RETURN 0]]></Value>
 				</Entry>
 			</Relationship>
 			<AttachedAnnotation Disambiguator="16" />
+			<AttachedAnnotation Disambiguator="9" />
 			<AttachedAnnotation Disambiguator="10" />
-			<AttachedAnnotation Disambiguator="11" />
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[PagingCountry]">
 			<Property Name="BodyScript">
@@ -6541,7 +6541,7 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="15" />
+			<AttachedAnnotation Disambiguator="17" />
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[PhanTrangPhanKhu]">
 			<Property Name="BodyScript">
@@ -7966,7 +7966,7 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="3" />
+						<AttachedAnnotation Disambiguator="7" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -8082,7 +8082,7 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="14" />
+			<AttachedAnnotation Disambiguator="18" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[ThongTinDoiTuongChinh]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -8270,9 +8270,9 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="13" />
-			<AttachedAnnotation Disambiguator="8" />
-			<AttachedAnnotation Disambiguator="9" />
+			<AttachedAnnotation Disambiguator="19" />
+			<AttachedAnnotation Disambiguator="11" />
+			<AttachedAnnotation Disambiguator="12" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[ThongTinDoiTuongPhu]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
