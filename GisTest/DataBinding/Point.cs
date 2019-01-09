@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GisTest.Models
+namespace GisTest.DataBinding
 {
     public class Point
     {

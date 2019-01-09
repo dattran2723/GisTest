@@ -1,4 +1,4 @@
-﻿using GisTest.Models;
+﻿using GisTest.DataBinding;
 using GisTest.ViewModels;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
@@ -9,12 +9,12 @@ namespace GisTest.Controllers
     [OutputCache(Duration = 600)]
     public class HomeController : Controller
     {
-        private GisData db = new GisData();
         private ThongTinDoiTuongChinh doiTuongChinh = new ThongTinDoiTuongChinh();
 
         public ActionResult Index()
         {
-            return View(doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode("001"));
+            List<ObjectViewModel> result = doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode("001");
+            return View(result);
         }
 
         /// <summary>
@@ -24,7 +24,8 @@ namespace GisTest.Controllers
         /// <returns>trả về danh sách đối tượng con của DiaGioiHanhChinhCode đó</returns>
         public JsonResult GetDiaDiem(string value)
         {
-            return Json(doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode(value), JsonRequestBehavior.AllowGet);
+            List<ObjectViewModel> result = doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode(value);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -38,7 +39,8 @@ namespace GisTest.Controllers
         {
             List<ObjectViewModel> listObj = new List<ObjectViewModel>();
             listObj.Add(doiTuongChinh.GetThongTinDoiTuongByValue(value));
-            return Json(doiTuongChinh.GetThongTinDoiTuongCha(listObj), JsonRequestBehavior.AllowGet);
+            listObj = doiTuongChinh.GetThongTinDoiTuongCha(listObj);
+            return Json(listObj, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
