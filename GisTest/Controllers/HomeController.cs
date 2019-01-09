@@ -60,7 +60,6 @@ namespace GisTest.Controllers
 
             List<ThongTinByLatLngViewModel> list = thongTinLatLngDoiTuong.GetAllDoiTuongByLatLng(lat, lng);
             string valueDoiTuong = string.Empty;
-
             foreach (var item in list)
             {
                 List<Polygon> polygons = thongTinVeDoiTuong.GetPolygonsFromDuLieuDoiTuong(item.DuLieuDoiTuong);
@@ -70,13 +69,14 @@ namespace GisTest.Controllers
                 {
                     result = point.IsPointInPolygon(polygon) ? true : result;
                 }
-                valueDoiTuong = result ? item.Value : valueDoiTuong;
+                if (result)
+                    valueDoiTuong = valueDoiTuong.Length < item.Value.Length ? item.Value : valueDoiTuong;
             }
             return Json(valueDoiTuong, JsonRequestBehavior.AllowGet);
 
         }
 
-        public ActionResult Page2()
+        public ActionResult ViTriDiaChinh()
         {
             return View();
         }
