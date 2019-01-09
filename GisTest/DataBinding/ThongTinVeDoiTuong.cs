@@ -6,7 +6,7 @@ using System.Web;
 
 namespace GisTest.DataBinding
 {
-    public partial class ThongTinVeDoiTuong
+    public partial class ThongTinVeDoiTuong : IThongTinVeDoiTuong
     {
         /// <summary>
         /// Lấy các poylgon từ DuLieuDoiTuong

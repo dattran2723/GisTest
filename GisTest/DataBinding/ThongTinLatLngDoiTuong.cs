@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace GisTest.DataBinding
 {
-    public class ThongTinLatLngDoiTuong
+    public class ThongTinLatLngDoiTuong : IThongTinLatLngDoiTuong
     {
         private GisData db = new GisData();
 

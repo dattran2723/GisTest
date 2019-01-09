@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace GisTest.DataBinding
 {
-    public partial class ThongTinDoiTuongChinh
+    public partial class ThongTinDoiTuongChinh : IThongTinDoiTuongChinh
     {
         private GisData db = new GisData();
 

@@ -156,6 +156,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataBinding\IThongTinDoiTuongChinh.cs" />
+    <Compile Include="DataBinding\IThongTinLatLngDoiTuong.cs" />
+    <Compile Include="DataBinding\IThongTinVeDoiTuong.cs" />
     <Compile Include="DataBinding\Polygon.cs" />
     <Compile Include="DataBinding\ThongTinDoiTuongChinh.cs" />
     <Compile Include="DataBinding\ThongTinLatLngDoiTuong.cs" />

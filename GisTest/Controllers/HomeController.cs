@@ -12,7 +12,8 @@ namespace GisTest.Controllers
 
         public ActionResult Index()
         {
-            List<ObjectViewModel> result = doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode("001");
+            var vietNamCode = System.Configuration.ConfigurationManager.AppSettings["VietNamCode"];
+            List<ObjectViewModel> result = doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode(vietNamCode);
             return View(result);
         }
         
