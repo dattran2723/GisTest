@@ -7,13 +7,13 @@
 }
 <div class="row w-100 ml-0 mr-0" id="Home">
     <div class="col-3" id="listCity">
-        <label>Danh sách bản đồ</label>
+        <label><b>Danh sách bản đồ</b></label>
         <ul class="menu-first">
             @foreach (var item in Model)
             {
                 <li class="node">
                     <a href="javascript:;" data-id="@item.Value" class="node-item">
-                        <span>@Html.DisplayFor(modelItem=>item.Description) @Html.DisplayFor(modelItem => item.Ten)</span>
+                        <span>@Html.DisplayFor(modelItem => item.Description) @Html.DisplayFor(modelItem => item.Ten)</span>
                         <span class="node-icon">
                             <i class="fa fa-angle-left"></i>
                         </span>

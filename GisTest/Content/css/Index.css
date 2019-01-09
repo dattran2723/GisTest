@@ -7,18 +7,12 @@
     overflow-y: auto;
 }
 
-#title {
-    height: 40px;
-    background: #0ba1d1;
-    position: relative;
-}
-
 #listCity {
     max-width: 17%;
     flex: 0 0 17%;
     position: absolute;
     overflow: scroll;
-    height: 100%;
+    height: 98%;
     overflow-y: auto;
     transition: 1s;
 }
@@ -29,7 +23,7 @@
 
 #listCity label {
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     width: 100%;
 }
 
@@ -49,12 +43,6 @@
     width: 3px;
 }
 
-/* Track */
-/*#listCity::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px #a09a9a;
-        border-radius: 10px;
-    }*/
-
 /* Handle */
 #listCity::-webkit-scrollbar-thumb {
     background: #aaa9a9;
@@ -69,7 +57,7 @@
 #listCity ul li a {
     cursor: pointer;
     display: flex;
-    height: 30px;
+    font-size: 16px;
     align-items: center;
     justify-content: space-between;
     padding-right: 10px;
@@ -103,7 +91,6 @@ ul {
     display: none;
 }
 
-
 a#hidden-listCity {
     position: fixed;
     color: #4f4d4d;
@@ -117,7 +104,6 @@ a#hidden-listCity {
     background: white;
     text-decoration: none;
     transition: 1s;
-    border-radius: 5px;
     border: 1px solid #d8d8d8;
     z-index: 10000;
 }
@@ -150,7 +136,6 @@ a#hidden-listCity {
         background: white;
         text-decoration: none;
         transition: 1s;
-        border-radius: 5px;
         border: 1px solid #d8d8d8;
         z-index: 1;
     }
@@ -163,11 +148,9 @@ a#hidden-listCity {
         background: white;
         width: 360px;
         box-shadow: 0px 13px 45px 2px rgba(0, 0, 0, 0.21);
-        border-radius: 5px;
     }
 
 .item-info {
-    /*border: 1px solid #808080;*/
     margin: 3% 0 3% 3%;
     display: flex;
     align-items: center;
