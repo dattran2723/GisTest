@@ -15,14 +15,15 @@ namespace GisTest.DataBinding
             this.Y = y;
         }
 
-        public bool IsPointInPolygon(List<Point> polygon)
+        public bool IsPointInPolygon(Polygon polygon)
         {
+            var points = polygon.points;
             bool inside = false;
-            for (int i = 0, j = polygon.Count - 1; i < polygon.Count; j = i++)
+            for (int i = 0, j = points.Count - 1; i < points.Count; j = i++)
             {
-                if ((polygon[i].Y > Y) != (polygon[j].Y > Y) &&
-                    (polygon[i].X > X || polygon[j].X > X) &&
-                     X < (polygon[j].X - polygon[i].X) * (Y - polygon[i].Y) / (polygon[j].Y - polygon[i].Y) + polygon[i].X)
+                if ((points[i].Y > Y) != (points[j].Y > Y) &&
+                    (points[i].X > X || points[j].X > X) &&
+                     X < (points[j].X - points[i].X) * (Y - points[i].Y) / (points[j].Y - points[i].Y) + points[i].X)
                 {
                     inside = !inside;
                 }

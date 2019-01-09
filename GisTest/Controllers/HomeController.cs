@@ -1,11 +1,6 @@
 ﻿using GisTest.DataBinding;
 using GisTest.ViewModels;
-using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace GisTest.Controllers
@@ -20,7 +15,13 @@ namespace GisTest.Controllers
             return View(doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode("001"));
         }
         
-
+        /// <summary>
+        /// Lấy các thông tin đối tượng bởi DiaGioiHanhChinhCode
+        /// </summary>
+        /// <param name="value"> giá trị của DiaGioiHanhChinhCode </param>
+        /// <returns>
+        /// Danh sách đối tượng có DiaGioiHanhChinhCode đó dưới dạng json
+        /// </returns>
         public JsonResult GetDiaDiem(string value)
         {
             return Json(doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode(value), JsonRequestBehavior.AllowGet);
@@ -28,63 +29,51 @@ namespace GisTest.Controllers
 
 
         /// <summary>
-        /// Lấy đầy đủ một thông tin đối tượng bởi value
+        /// Lấy đầy đủ thông tin của một đối tượng bởi code của đối tượng đó
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">giá trị code của đối tượng</param>
+        /// <returns>
+        /// danh sách các đối tượng dưới dạng json
+        /// </returns>
         public JsonResult GetFullThongTinDoiTuongByValue(string value)
         {
             List<ObjectViewModel> listObj = new List<ObjectViewModel>();
             listObj.Add(doiTuongChinh.GetThongTinDoiTuongByValue(value));
             return Json(doiTuongChinh.GetThongTinDoiTuongCha(listObj), JsonRequestBehavior.AllowGet);
         }
-        
+
         /// <summary>
         /// truyen vao 2 gia tri Lat, Lng
         /// dem so sanh voi cac gia tri Max Min bang cach goi store
-        /// trong store se bettwen Lat voi MinLat-MaxLat va Lng voi MinLng-MaxLng va tra 
+        /// trong store Lat sẽ nằm giữa voi MinLat-MaxLat va Lng sẽ nằm giữa voi MinLng-MaxLng va tra 
         /// ve gia tri ID,DuLieuDoiTuong,Value
         /// </summary>
-        /// <param name="Lat">value Lat</param>
-        /// <param name="Lng">value Lng</param>
-        /// <returns>phan tu Value dau tien </returns>
+        /// <param name="Lat">giá trị Lat</param>
+        /// <param name="Lng">giá trị Lng</param>
+        /// <returns>giá trị Code của một đối tượng</returns>
         public JsonResult GetThongTinByLatLng(double lat, double lng)
         {
-            ThongTinLatLngDoiTuong obj = new ThongTinLatLngDoiTuong();
-            List<ThongTinByLatLngViewModel> listObj = obj.GetAllDoiTuongByLatLng(lat, lng);
-            string result = string.Empty;
-            foreach (var item in listObj)
+            ThongTinLatLngDoiTuong thongTinLatLngDoiTuong = new ThongTinLatLngDoiTuong();
+            ThongTinVeDoiTuong thongTinVeDoiTuong = new ThongTinVeDoiTuong();
+
+            List<ThongTinByLatLngViewModel> list = thongTinLatLngDoiTuong.GetAllDoiTuongByLatLng(lat, lng);
+            string valueDoiTuong = string.Empty;
+
+            foreach (var item in list)
             {
-                List<Point> polygon = GetPolygonFromDuLieuDoiTuong(item.DuLieuDoiTuong);
+                List<Polygon> polygons = thongTinVeDoiTuong.GetPolygonsFromDuLieuDoiTuong(item.DuLieuDoiTuong);
                 Point point = new Point(lng, lat);
-                if (point.IsPointInPolygon(polygon))
+                bool result = false;
+                foreach (var polygon in polygons)
                 {
-                    result = item.Value;
+                    result = point.IsPointInPolygon(polygon) ? true : result;
                 }
+                valueDoiTuong = result ? item.Value : valueDoiTuong;
             }
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return Json(valueDoiTuong, JsonRequestBehavior.AllowGet);
 
         }
-        /// <summary>
-        /// select tung phan tu trong 'coordinates' va add vao List<Point>
-        /// </summary>
-        /// <param name="dulieudoituong">la chuoi DuLieuDoiTuong </param>
-        /// <returns>list cac point cua polygon</returns>
-        public List<Point> GetPolygonFromDuLieuDoiTuong(string dulieudoituong)
-        {
-            JObject json = JObject.Parse(dulieudoituong);
-            var geometry = json.SelectToken("geometry");
-            JArray coordinates = (JArray)geometry.SelectToken("coordinates")[0];
-            List<Point> points = new List<Point>();
-            foreach (var item in coordinates)
-            {
-                var x = item[0];
-                var y = item[1];
-                Point point = new Point((double)x, (double)y);
-                points.Add(point);
-            }
-            return points;
-        }
+
         public ActionResult Page2()
         {
             return View();

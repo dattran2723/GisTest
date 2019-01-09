@@ -156,8 +156,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataBinding\Polygon.cs" />
     <Compile Include="DataBinding\ThongTinDoiTuongChinh.cs" />
     <Compile Include="DataBinding\ThongTinLatLngDoiTuong.cs" />
+    <Compile Include="DataBinding\ThongTinVeDoiTuong.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
