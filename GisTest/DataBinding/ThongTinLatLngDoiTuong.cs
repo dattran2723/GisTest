@@ -14,7 +14,6 @@ namespace GisTest.DataBinding
 
         /// <summary>
         /// trong Store sẻ Lấy Lat so sah với MinLat-MaxLat và lấy Lng so sánh với MinLng-MaxLng
-        /// Và lấy tới ThongTinDoiTuongPhu.Code = 'XA/PHUONG'
         /// </summary>
         /// <param name="lat">truyền vào giá trị Lat</param>
         /// <param name="lng">truyền vào giá trị Lat</param>

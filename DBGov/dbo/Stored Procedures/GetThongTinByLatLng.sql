@@ -35,5 +35,4 @@ AND (
 )
 AND ThongTinLatLngDoiTuong.Id = ThongTinDoiTuongChinh.Id
 AND ThongTinDoiTuongPhu.ThongTinDoiTuongChinhId = ThongTinDoiTuongChinh.Id
-AND ThongTinDoiTuongPhu.Code = 'XA/PHUONG'
 AND ThongTinDoiTuongChinh.Id = ThongTinVeDoiTuong.ThongTinDoiTuongChinhId
