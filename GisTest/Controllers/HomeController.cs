@@ -76,7 +76,7 @@ namespace GisTest.Controllers
 
         }
 
-        public ActionResult Page2()
+        public ActionResult ViTriDiaChinh()
         {
             return View();
         }
