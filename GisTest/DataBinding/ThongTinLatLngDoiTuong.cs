@@ -12,14 +12,15 @@ namespace GisTest.DataBinding
     {
         private GisData db = new GisData();
 
+
+
         /// <summary>
-        /// Lấy tất cả đổi tượng có Lat Lng nằm trong
+        /// trong Store sẻ Lấy Lat so sah với MinLat-MaxLat và lấy Lng so sánh với MinLng-MaxLng
+        /// Và lấy tới ThongTinDoiTuongPhu.Code = 'XA/PHUONG'
         /// </summary>
-        /// <param name="lat">giá trị Lat của điểm</param>
-        /// <param name="lng">giá trị Lng của điển</param>
-        /// <returns>
-        /// danh sách các đối tượng
-        /// </returns>
+        /// <param name="lat">truyền vào giá trị Lat</param>
+        /// <param name="lng">truyền vào giá trị Lat</param>
+        /// <returns>1 list bao gồm Id, DuLieuDoiTuong và Value</returns>
         public List<ThongTinByLatLngViewModel> GetAllDoiTuongByLatLng(double lat, double lng)
         {
             try

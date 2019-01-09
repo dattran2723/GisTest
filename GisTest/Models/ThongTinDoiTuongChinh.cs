@@ -1,12 +1,11 @@
-﻿namespace GisTest.Models
+﻿using GisTest.ViewModels;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+
+namespace GisTest.Models
 {
-    using GisTest.ViewModels;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-    using System.Linq;
 
     [Table("ThongTinDoiTuongChinh")]
     public partial class ThongTinDoiTuongChinh
@@ -52,6 +51,5 @@
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ThongTinVeDoiTuong> ThongTinVeDoiTuongs { get; set; }
-        
     }
 }

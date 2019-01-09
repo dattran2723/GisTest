@@ -12,7 +12,8 @@ namespace GisTest.Controllers
 
         public ActionResult Index()
         {
-            return View(doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode("001"));
+            List<ObjectViewModel> result = doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode("001");
+            return View(result);
         }
         
         /// <summary>
@@ -24,29 +25,29 @@ namespace GisTest.Controllers
         /// </returns>
         public JsonResult GetDiaDiem(string value)
         {
-            return Json(doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode(value), JsonRequestBehavior.AllowGet);
+            List<ObjectViewModel> result = doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode(value);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
 
         /// <summary>
-        /// Lấy đầy đủ thông tin của một đối tượng bởi code của đối tượng đó
+        /// Lấy đầy đủ thông tin đối tượng bởi value truyền vào
+        /// Nếu kích vào phường hay quận thì sẻ lấy đến thông tin của đối tượng cha nó
         /// </summary>
-        /// <param name="value">giá trị code của đối tượng</param>
-        /// <returns>
-        /// danh sách các đối tượng dưới dạng json
-        /// </returns>
+        /// <param name="value">truyền vào giá trị DiaGioiHanhChinhCode</param>
+        /// <returns>trả về danh sách thông tin đối tượng cha và con</returns>
         public JsonResult GetFullThongTinDoiTuongByValue(string value)
         {
             List<ObjectViewModel> listObj = new List<ObjectViewModel>();
             listObj.Add(doiTuongChinh.GetThongTinDoiTuongByValue(value));
-            return Json(doiTuongChinh.GetThongTinDoiTuongCha(listObj), JsonRequestBehavior.AllowGet);
+            listObj = doiTuongChinh.GetThongTinDoiTuongCha(listObj);
+            return Json(listObj, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
-        /// truyen vao 2 gia tri Lat, Lng
-        /// dem so sanh voi cac gia tri Max Min bang cach goi store
-        /// trong store Lat sẽ nằm giữa voi MinLat-MaxLat va Lng sẽ nằm giữa voi MinLng-MaxLng va tra 
-        /// ve gia tri ID,DuLieuDoiTuong,Value
+        /// Khởi tạo biến result
+        /// Gọi hàm IsPointInPolygon() để kiểm trả có phải điểm đó nằm trong Polygon hay không
+        /// Nếu có thì sẻ gán giá trị item.Value vào result
         /// </summary>
         /// <param name="Lat">giá trị Lat</param>
         /// <param name="Lng">giá trị Lng</param>
