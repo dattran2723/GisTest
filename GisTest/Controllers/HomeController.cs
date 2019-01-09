@@ -15,7 +15,7 @@ namespace GisTest.Controllers
             List<ObjectViewModel> result = doiTuongChinh.GetDoiTuongChinhByDiaGioiHanhChinhCode("001");
             return View(result);
         }
-        
+
         /// <summary>
         /// Lấy các thông tin đối tượng bởi DiaGioiHanhChinhCode
         /// </summary>
