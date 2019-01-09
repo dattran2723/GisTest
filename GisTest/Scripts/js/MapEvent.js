@@ -40,6 +40,7 @@ $(function () {
         //zoom đến địa điểm
         map.leaflet.setView([lat, lng], zoom);
         //add html để hiển thị thông tin
+        $("#show-info").removeClass("hidden");
         $(".load-info").html(htmlCode);
         $("#show-info").css("display", "flex");
     });
