@@ -53,6 +53,7 @@
                 type: 'get',
                 success: function (obj) {
                     var htmlCode = GetThongTin(obj);
+                    $("#show-info").removeClass("hidden");
                     $(".load-info").html(htmlCode);
                     $("#show-info").css("display", "flex");
                 }

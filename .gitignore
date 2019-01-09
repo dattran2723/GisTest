@@ -15,4 +15,4 @@
 /DatabaseGis/obj/Debug
 /DBGov/DBGov.jfm
 /DBGov/DBGov.dbmdl
-*.dacpac
+/DBGov/Snapshots
