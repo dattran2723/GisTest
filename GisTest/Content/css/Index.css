@@ -34,7 +34,9 @@
 .open > a {
     color: #701919;
 }
-
+li{
+    line-height:30px;
+}
 .open ul li ul li a span.node-icon {
     display: none;
 }
@@ -68,7 +70,7 @@
     margin-left: 17%;
     max-width: 83%;
     flex: 0 0 83%;
-    height: 93%;
+    height: 94%;
     padding-right: 0;
     padding-left: 0;
     position: absolute;

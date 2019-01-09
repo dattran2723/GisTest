@@ -27,7 +27,7 @@
         map.leaflet.setView([10.167615, 106.411514], 5)
         //sự kiện click vào địa điểm trên danh sách bản đổ
         function GetThongTin(e) {
-            var codeHtml = "";
+            var codeHtml = '';
             $.ajax({
                 url: "/Home/GetFullThongTinDoiTuongByValue?value=" + e,
                 type: 'get',
@@ -40,9 +40,10 @@
                     data.forEach(function (item) {
                         codeHtml = '<div class="row item-info"><label class="col-6 ' + item.Code.replace("/", "") + '" ></label ><label class="col-6">' + item.Ten + '</label></div >' + codeHtml;
                     });
-                    codeHtml = codeHtml + '<div class="row item-info"><label class="col-6" >Tên:</label ><label class="col-6">' + data[0].Ten + '</label></div >';
+                    codeHtml ='<div class="row item-info"><label class="col-6">Quốc gia:</label><label class="col-6">Việt Nam</label></div>'+ codeHtml + '<div class="row item-info"><label class="col-6" >Tên:</label ><label class="col-6">' + data[0].Ten + '</label></div >';
                 }
             });
+            console.log(codeHtml)
             return codeHtml;
         };
         //Click vao Map thi Load len thong tin cua dia diem do
