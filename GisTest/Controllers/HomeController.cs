@@ -53,7 +53,7 @@ namespace GisTest.Controllers
         /// <param name="Lat">giá trị Lat</param>
         /// <param name="Lng">giá trị Lng</param>
         /// <returns>giá trị Code của một đối tượng</returns>
-        public JsonResult GetThongTinByLatLng(double lat, double lng)
+        public ActionResult GetThongTinByLatLng(double lat, double lng)
         {
             ThongTinLatLngDoiTuong thongTinLatLngDoiTuong = new ThongTinLatLngDoiTuong();
             ThongTinVeDoiTuong thongTinVeDoiTuong = new ThongTinVeDoiTuong();
@@ -72,7 +72,7 @@ namespace GisTest.Controllers
                 if (result)
                     valueDoiTuong = valueDoiTuong.Length < item.Value.Length ? item.Value : valueDoiTuong;
             }
-            return Json(valueDoiTuong, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("GetFullThongTinDoiTuongByValue", new { value = valueDoiTuong });
 
         }
 

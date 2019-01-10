@@ -25,34 +25,19 @@
         map = MapGL.initMap("xinkciti-map", paramMap);
         //setview cho map khi load
         map.leaflet.setView([10.167615, 106.411514], 5)
-        //sự kiện click vào địa điểm trên danh sách bản đổ
-        function GetThongTin(e) {
-            var codeHtml = '';
-            $.ajax({
-                url: "/Home/GetFullThongTinDoiTuongByValue?value=" + e,
-                type: 'get',
-                async: false,
-                success: function (data) {
-                    dulieuve = ' {"type": "FeatureCollection","features": [' + data[0].DuLieuVe + ']}';
-                    pLat = data[0].Lat;
-                    pLng = data[0].Lng;
-                    zoom = data[0].Zoom;
-                    data.forEach(function (item) {
-                        codeHtml = '<div class="row item-info"><label class="col-6 ' + item.Code.replace("/", "") + '" ></label ><label class="col-6">' + item.Ten + '</label></div >' + codeHtml;
-                    });
-                    codeHtml ='<div class="row item-info"><label class="col-6">Quốc gia:</label><label class="col-6">Việt Nam</label></div>'+ codeHtml + '<div class="row item-info"><label class="col-6" >Tên:</label ><label class="col-6">' + data[0].Ten + '</label></div >';
-                }
-            });
-            console.log(codeHtml)
-            return codeHtml;
-        };
+        
         //Click vao Map thi Load len thong tin cua dia diem do
         map.leaflet.on('click', function (e) {
             $.ajax({
                 url: "/Home/GetThongTinByLatLng?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng,
                 type: 'get',
-                success: function (obj) {
-                    var htmlCode = GetThongTin(obj);
+                success: function (data) {
+                    var htmlCode = '';
+                    data.forEach(function (item) {
+                        htmlCode = '<div class="row item-info"><label class="col-6 ' + item.Code.replace("/", "") + '" ></label ><label class="col-6">' + item.Ten + '</label></div >' + htmlCode;
+                    });
+                    htmlCode = '<div class="row item-info"><label class="col-6">Quốc gia:</label><label class="col-6">Việt Nam</label></div>' + htmlCode + '<div class="row item-info"><label class="col-6" >Tên:</label ><label class="col-6">' + data[0].Ten + '</label></div >';
+
                     $("#show-info").removeClass("hidden");
                     $(".load-info").html(htmlCode);
                     $("#show-info").css("display", "flex");
