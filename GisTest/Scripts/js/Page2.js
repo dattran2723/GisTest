@@ -25,7 +25,7 @@
         map = MapGL.initMap("xinkciti-map", paramMap);
         //setview cho map khi load
         map.leaflet.setView([10.167615, 106.411514], 5)
-        
+
         //Click vao Map thi Load len thong tin cua dia diem do
         map.leaflet.on('click', function (e) {
             $.ajax({
@@ -33,10 +33,12 @@
                 type: 'get',
                 success: function (data) {
                     var htmlCode = '';
-                    data.forEach(function (item) {
-                        htmlCode = '<div class="row item-info"><label class="col-6 ' + item.Code.replace("/", "") + '" ></label ><label class="col-6">' + item.Ten + '</label></div >' + htmlCode;
-                    });
-                    htmlCode = '<div class="row item-info"><label class="col-6">Quốc gia:</label><label class="col-6">Việt Nam</label></div>' + htmlCode + '<div class="row item-info"><label class="col-6" >Tên:</label ><label class="col-6">' + data[0].Ten + '</label></div >';
+                    if (data.length > 0) {
+                        data.forEach(function (item) {
+                            htmlCode = '<div class="row item-info"><label class="col-6 ' + item.Code.replace("/", "") + '" ></label ><label class="col-6">' + item.Ten + '</label></div >' + htmlCode;
+                        });
+                        htmlCode = '<div class="row item-info"><label class="col-6">Quốc gia:</label><label class="col-6">Việt Nam</label></div>' + htmlCode + '<div class="row item-info"><label class="col-6" >Tên:</label ><label class="col-6">' + data[0].Ten + '</label></div >';
+                    }
 
                     $("#show-info").removeClass("hidden");
                     $(".load-info").html(htmlCode);
