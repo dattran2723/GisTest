@@ -41,6 +41,7 @@
                     }
 
                     $("#show-info").removeClass("hidden");
+                    $("#hidden-info").removeClass("clicked");
                     $(".load-info").html(htmlCode);
                     $("#show-info").css("display", "flex");
                 }
